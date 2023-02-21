@@ -67,6 +67,7 @@ public class Mouvement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
+            rb.velocity = new Vector2(rb.velocity.x, 0f); 
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
@@ -152,7 +153,7 @@ public class Mouvement : MonoBehaviour
     }
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || horizontal > 0f)
+        if (!isFacingRight && horizontal < 0f || isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
