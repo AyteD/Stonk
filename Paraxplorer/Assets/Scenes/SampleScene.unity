@@ -330,8 +330,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f983e23cfab922d4688a14a1969e41d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 10
   jumpingPower: 20
+  wallSlidingSpeed: 2
+  groundDrag: 6
+  aireDrag: 0.4
+  wallDrag: 3
   wallCheck: {fileID: 1246760994}
   wallLayer:
     serializedVersion: 2

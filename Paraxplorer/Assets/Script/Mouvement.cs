@@ -17,7 +17,11 @@ public class Mouvement : MonoBehaviour
     private float jumpBufferCounter;
 
     private bool IsWallSliding;
-    private float wallSlidingSpeed = 2f;
+    [SerializeField] private float wallSlidingSpeed = 2f;
+
+    [SerializeField] private float groundDrag;
+    [SerializeField] private float aireDrag;
+    [SerializeField] private float wallDrag;
 
     private bool IsWallJumping;
     private float wallJumperDirection;
@@ -25,6 +29,8 @@ public class Mouvement : MonoBehaviour
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+
+
 
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
@@ -74,8 +80,10 @@ public class Mouvement : MonoBehaviour
         }
 
         WallSlide();
-        WallJump();  
-        
+        WallJump();
+        DragControl();
+
+
         if (!IsWallJumping)
         {
             Flip();
@@ -144,6 +152,23 @@ public class Mouvement : MonoBehaviour
             }
 
             Invoke(nameof(StopWallJumping), wallJumpingDuration);
+        }
+    }
+
+    private void DragControl()
+    {
+
+        if (IsGrounded() && !IsWalled())
+        {
+            rb.drag = groundDrag;
+        }
+        else if (!IsGrounded() && IsWalled())
+        {
+            rb.drag = wallDrag;
+        }
+        else if (!IsGrounded() && !IsWalled())
+        {
+            rb.drag = aireDrag;
         }
     }
 
