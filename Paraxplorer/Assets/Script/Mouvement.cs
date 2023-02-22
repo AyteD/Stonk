@@ -10,10 +10,10 @@ public class Mouvement : MonoBehaviour
     [SerializeField] private float jumpingPower = 16f;
     private bool isFacingRight = false;
 
-    private float coyoteTime = 0.2f;
+    [SerializeField] private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
-    private float jumpBufferTime = 0.2f;
+    [SerializeField] private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
 
     private bool IsWallSliding;
@@ -70,7 +70,7 @@ public class Mouvement : MonoBehaviour
 
             jumpBufferCounter = 0;
         }
-
+        
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f); 
@@ -127,14 +127,14 @@ public class Mouvement : MonoBehaviour
         if (IsWallSliding)
         {
             IsWallJumping = false;
-            wallJumperDirection = -transform.localScale.x;
+            wallJumperDirection = -transform.localScale.x; 
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJumping));
         }
         else
         {
-            wallJumperDirection -= Time.deltaTime;
+            wallJumpingCounter -= Time.deltaTime;
         }
 
         if (Input.GetButtonDown("Jump") && wallJumpingCounter > 0f)
