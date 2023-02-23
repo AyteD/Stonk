@@ -8,10 +8,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEntre2D(Collider2D collision)
     {
-        if(collision.CompareTag("Mouvement"))  
+        if(collision.CompareTag("Player"))  
         {
             Debug.Log("Touché"); ;
-            Mouvement.instance.TakeDamage(damage);
+            Player.instance.TakeDamage(damage);
         }
     }
 }

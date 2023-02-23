@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (Mouvement.instance.currentHealth)
+        switch (Player.instance.currentHealth)
         {
             case 9:
                 life4.sprite = fullheart;

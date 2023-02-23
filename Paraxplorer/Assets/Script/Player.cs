@@ -4,9 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Mouvement : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    public static Mouvement instance;
+    public static Player instance;
     public int currentHealth;
     public int maxHealth = 8;
 
@@ -46,7 +46,7 @@ public class Mouvement : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    } 
+    }
 
     private void Start()
     {
@@ -207,9 +207,10 @@ public class Mouvement : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(currentHealth >= 0)
+        if (currentHealth >= 1)
         {
             currentHealth -= damage;
+            maxHealth = currentHealth;
         }
 
     }

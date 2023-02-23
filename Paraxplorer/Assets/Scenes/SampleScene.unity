@@ -133,10 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3477408}
   - component: {fileID: 3477407}
-  - component: {fileID: 3477406}
   - component: {fileID: 3477405}
+  - component: {fileID: 3477406}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19881,6 +19881,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3603519805753809002, guid: a72a4e902957d8d4f9f7b521a6da49ff, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3603519805753809003, guid: a72a4e902957d8d4f9f7b521a6da49ff, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -19932,6 +19936,10 @@ PrefabInstance:
     - target: {fileID: 3603519805753809012, guid: a72a4e902957d8d4f9f7b521a6da49ff, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572089522567932992, guid: a72a4e902957d8d4f9f7b521a6da49ff, type: 3}
+      propertyPath: maxHealth
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2220975583703271615, guid: a72a4e902957d8d4f9f7b521a6da49ff, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3603519804615161747}
   m_Layer: 0
   m_Name: Ground Check
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3603519804673754233}
   m_Layer: 0
   m_Name: Wall Check
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,10 +73,10 @@ GameObject:
   - component: {fileID: 3603519805753809003}
   - component: {fileID: 2220975583703271615}
   - component: {fileID: 3603519805753809002}
-  - component: {fileID: 3603519805753809000}
+  - component: {fileID: 4572089522567932992}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3603519805753809000
+--- !u!114 &4572089522567932992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,11 +145,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3603519805753809012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f983e23cfab922d4688a14a1969e41d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 300891a45fa8ef6408382a047964ff08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpingPower: 20
+  currentHealth: 0
+  maxHealth: 8
+  speed: 8
+  jumpingPower: 16
   coyoteTime: 0.2
   jumpBufferTime: 0.2
   wallSlidingSpeed: 2
@@ -177,7 +179,7 @@ GameObject:
   - component: {fileID: 3603519806276145335}
   m_Layer: 0
   m_Name: Renderer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
