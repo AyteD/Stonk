@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Mouvement : MonoBehaviour
 {
+    public static Mouvement instance;
+    public int currentHealth;
+    public int maxHealth = 8;
+
     private float horizontal;
     [SerializeField] private float speed = 8f;
     [SerializeField] private float jumpingPower = 16f;
@@ -38,6 +43,17 @@ public class Mouvement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    private void Awake()
+    {
+        instance = this;
+    } 
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -70,10 +86,10 @@ public class Mouvement : MonoBehaviour
 
             jumpBufferCounter = 0;
         }
-        
+
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0f); 
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
 
             coyoteTimeCounter = 0f;
@@ -93,7 +109,7 @@ public class Mouvement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!IsWallJumping)
+        if (!IsWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
@@ -127,7 +143,7 @@ public class Mouvement : MonoBehaviour
         if (IsWallSliding)
         {
             IsWallJumping = false;
-            wallJumperDirection = -transform.localScale.x; 
+            wallJumperDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
 
             CancelInvoke(nameof(StopWallJumping));
@@ -174,7 +190,7 @@ public class Mouvement : MonoBehaviour
 
     private void StopWallJumping()
     {
-        IsWallJumping=false;   
+        IsWallJumping = false;
     }
     private void Flip()
     {
@@ -185,5 +201,16 @@ public class Mouvement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+
+
+    public void TakeDamage(int damage)
+    {
+        if(currentHealth >= 0)
+        {
+            currentHealth -= damage;
+        }
+
     }
 }
