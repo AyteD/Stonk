@@ -7,6 +7,7 @@ public class HealthBar : MonoBehaviour
 {
 
     [SerializeField] Sprite fullheart, emptyheart,halfheart;
+
     [SerializeField] Image life1, life2, life3, life4;
 
     // Start is called before the first frame update

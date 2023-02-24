@@ -18,7 +18,7 @@ public class PlayerTeleport : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) //crée une entré
+    private void OnTriggerEnter2D(Collider2D collision) //crée une entrée
     {
         if (collision.CompareTag("Teleporter"))
         {

@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 { 
     //  début des déclaration e variable
     public static Player instance;
+
     public int currentHealth;
     public int maxHealth = 8;
 
@@ -36,7 +37,9 @@ public class Player : MonoBehaviour
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpingPower = new Vector2(8f, 16f);
 
-
+    public Vector3 position = new Vector3(8f ,16f,- 1f);
+    
+    
 
     [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask wallLayer;
@@ -150,7 +153,7 @@ public class Player : MonoBehaviour
 
             CancelInvoke(nameof(StopWallJumping));
         }
-        else
+        else 
         {
             wallJumpingCounter -= Time.deltaTime;
         }
