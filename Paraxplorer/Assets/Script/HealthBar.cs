@@ -20,63 +20,64 @@ public class HealthBar : MonoBehaviour
     {
         switch (Player.instance.currentHealth)
         {
-            case 9:
+
+            case 9: //full life
                 life4.sprite = fullheart;
                 life3.sprite = fullheart;
                 life2.sprite = fullheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 8:
+            case 8: //3 coeur et demi
                 life4.sprite = halfheart;
                 life3.sprite = fullheart;
                 life2.sprite = fullheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 7:
+            case 7: //3 coeur 
                 life4.sprite = emptyheart;
                 life3.sprite = fullheart;
                 life2.sprite = fullheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 6:
+            case 6://2 coeur et demi
                 life4.sprite = emptyheart;
                 life3.sprite = halfheart;
                 life2.sprite = fullheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 5:
+            case 5://2 coeur 
                 life4.sprite = emptyheart;
                 life3.sprite = emptyheart;
                 life2.sprite = fullheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 4:
+            case 4://1 coeur et demi
                 life4.sprite = emptyheart;
                 life3.sprite = emptyheart;
                 life2.sprite = halfheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 3:
+            case 3://1 coeur 
                 life4.sprite = emptyheart;
                 life3.sprite = emptyheart;
                 life2.sprite = emptyheart;
                 life1.sprite = fullheart;
                 break;
 
-            case 2:
+            case 2://1 demi coeur 
                 life4.sprite = emptyheart;
                 life3.sprite = emptyheart;
                 life2.sprite = emptyheart;
                 life1.sprite = halfheart;
                 break;
 
-            case 1:
+            case 1: // pas de vie 
                 life4.sprite = emptyheart;
                 life3.sprite = emptyheart;
                 life2.sprite = emptyheart;

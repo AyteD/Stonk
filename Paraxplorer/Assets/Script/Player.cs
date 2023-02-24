@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
-{
+{ 
+    //  début des déclaration e variable
     public static Player instance;
     public int currentHealth;
     public int maxHealth = 8;
@@ -42,13 +43,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-
-    private void Awake()
+    // fin de déclaration de variable
+    private void Awake() // fonction qui instancie la classe "Player"
     {
-        instance = this;
+        instance = this;  
     }
 
-    private void Start()
+    private void Start() //fonction qui rend égale la vie du joueur a son nombre de pv max
     {
         currentHealth = maxHealth;
 
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (IsGrounded())
+        if (IsGrounded()) // fais fonctioné le coyote jump
         {
             coyoteTimeCounter = coyoteTime;
         }
@@ -70,7 +71,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump")) // fais fonctioné le jump buffering
         {
             jumpBufferCounter = jumpBufferTime;
         }
@@ -80,14 +81,14 @@ public class Player : MonoBehaviour
         }
 
 
-        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)// créé un ecteur qui influence la puissance du saut
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
             jumpBufferCounter = 0;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) // permet de sauté
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
@@ -95,14 +96,14 @@ public class Player : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        WallSlide();
-        WallJump();
-        DragControl();
+        WallSlide();//appele de la fonction nommé
+        WallJump();//appele de la fonction nommé
+        DragControl();//appele de la fonction nommé
 
 
         if (!IsWallJumping)
         {
-            Flip();
+            Flip();//appele de la fonction nommé
 
         }
     }
@@ -115,17 +116,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
+    private bool IsGrounded() //detecte le sol
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    private bool IsWalled()
+    private bool IsWalled() // detecte les murs
     {
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
-    private void WallSlide()
+    private void WallSlide()// permet de slide sur les murs
     {
         if (IsWalled() && !IsGrounded() && horizontal != 0f)
         {
@@ -139,7 +140,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void WallJump()
+    private void WallJump()// permet de walljump
     {
         if (IsWallSliding)
         {
@@ -172,7 +173,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void DragControl()
+    private void DragControl() //permet de modifier la résistance des fortement 
     {
 
         if (IsGrounded() && !IsWalled())
@@ -189,11 +190,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void StopWallJumping()
+    private void StopWallJumping() // arrte de le walljump
     {
         IsWallJumping = false;
     }
-    private void Flip()
+    private void Flip() // retourne le personnge 
     {
         if (!isFacingRight && horizontal < 0f || isFacingRight && horizontal > 0f)
         {
@@ -206,7 +207,7 @@ public class Player : MonoBehaviour
 
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) //prend des dégat (pas fonctionelle)
     {
         if (currentHealth >= 1)
         {
