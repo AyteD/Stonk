@@ -213,7 +213,13 @@ public class Player : MonoBehaviour
         {
             currentHealth -= damage;
             maxHealth = currentHealth;
+            Debug.Log(currentHealth);
         }
+
+    }
+
+    public void Translate(Vector3 v)
+    {
 
     }
 }
