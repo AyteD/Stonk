@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
             jumpBufferCounter = 0;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) // permet de sauté
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) // permet de sauter
         {
             rb.velocity = new Vector2(rb.velocity.x, 0f);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
@@ -96,14 +96,14 @@ public class Player : MonoBehaviour
             coyoteTimeCounter = 0f;
         }
 
-        WallSlide();//appele de la fonction nommé
-        WallJump();//appele de la fonction nommé
-        DragControl();//appele de la fonction nommé
+        WallSlide();//appele de la fonction nommée
+        WallJump();//appele de la fonction nommée
+        DragControl();//appele de la fonction nommée
 
 
         if (!IsWallJumping)
         {
-            Flip();//appele de la fonction nommé
+            Flip();//appelle de la fonction nommée
 
         }
     }
