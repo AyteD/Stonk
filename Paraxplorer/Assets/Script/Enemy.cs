@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     {
         if(collision.CompareTag("Player"))  
         {
-            Debug.Log("Touché"); ;
-            Player.instance.TakeDamage(damage);
+            Debug.Log("Touché"); //ecrie touher si le player touche l'énemei (c'est un test)
+            Player.instance.TakeDamage(damage); // inflige un de dégat 
         }
     }
 }
