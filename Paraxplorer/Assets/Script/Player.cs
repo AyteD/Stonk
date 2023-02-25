@@ -5,7 +5,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
-{ 
+{
+
+    public List<string> items;
+
     //  début des déclaration e variable
     public static Player instance;
     public int currentHealth;
@@ -53,6 +56,7 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
 
+        items = new List<string>();
     }
 
     // Update is called once per frame
@@ -222,4 +226,14 @@ public class Player : MonoBehaviour
     {
 
     }
-}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Collectable"));
+        {
+            print("we have coollected an item");
+
+            Destroy(collision.gameObject);  
+        }
+    }
+}   
